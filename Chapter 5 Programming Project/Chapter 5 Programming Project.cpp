@@ -2,11 +2,40 @@
 //
 
 #include <iostream>
+#include <cstdlib> 
+#include <ctime>   
+using namespace std;
 
-int main()
-{
-    std::cout << "Hello World!\n";
+int main() {
+    srand(time(0)); 
+    int randomnum = rand() % 100 + 1; 
+    int guess;
+    int guesses = 0;
+    // cout << randomnum << endl; // I tots didnt cheat
+     cout << "Try to guess a number between 1-100" << endl;
+
+    do {
+        cout << "Please enter your guess: ";
+        cin >> guess;
+        guesses++;
+
+        if (guess > randomnum) {
+            cout << "Too high try guessing somehting lower" << endl;
+        }
+        else if (guess < randomnum) {
+            cout << "Too low try guessing somehting higher" << endl;
+        }
+    } while (guess != randomnum);
+
+    cout << "Congratulations! You got the number in: " << guesses << " guesses" << endl;
+    if (guesses == 1) {
+        cout << "That was so lucky have yer heard of gambling kid" << endl;
+    }
+    else;
+    return 0;
+    //I swear on all things holy we did something like this but without rand
 }
+
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
